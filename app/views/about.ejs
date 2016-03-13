@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include partials/header.ejs %>
+</head>
+
+<body>
+    <% include partials/navbar.ejs %>
+
+        <br>
+
+                    <!-- MAIN CONTENT -->
+                    <main class="container">
+
+                        <div class="jumbotron">
+                            <h1><%= title %></h1>
+                            <hr class="featurette-divider">
+                            <!-- <br> -->
+                            <p class="lead">
+
+                            </p>
+
+                            <div class="row featurette">
+                                <div class="col-md-7">
+                                    <h2 class="featurette-heading">Software Developer. <span class="text-muted">IT consultant</span></h2>
+                                    <p class="text-muted">
+                                        <%= msg %>
+                                    </p>
+                                </div>
+                                <div class="col-md-5">
+                                    <img class="featurette-image img-responsive center-circle img-circle" src="<%= img %>" alt="main_photo" width="200" height="200">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </main>
+                    <% include partials/footer.ejs %>
