@@ -10,10 +10,11 @@ module.exports = function(app) {
     
     app.route('/services').get(index.renderServices);
     
-     app.route('/contact').get(index.renderContact);
+    app.route('/contact').get(index.renderContact);
      
-     app.route('/cli_homepage').get(index.renderClihomepage);
+    app.route('/cli_homepage').get(index.renderClihomepage);
      
-     app.route('/law_homepage').get(index.renderLawhomepage);
-        
+    app.route('/law_homepage').get(index.renderLawhomepage);
+    
+    app.route('/createApplicant').get(index.renderLawCreateApplicant);
 };

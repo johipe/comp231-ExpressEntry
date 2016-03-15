@@ -63,6 +63,10 @@ exports.renderClihomepage = function(req, res, next)
     
 };
 
+///////////////////////////////////////////////////////
+// Lawyer Routes
+//////////////////////////////////////////////////////
+
 exports.renderLawhomepage = function(req, res, next)
 {
     User.find({role:"client"}, function(err, users){
@@ -78,6 +82,15 @@ exports.renderLawhomepage = function(req, res, next)
             role: req.user ? req.user.role: '',
             userFullName: req.user ? req.user.fullName: ''
         });
+    }); 
+};
+
+exports.renderLawCreateApplicant = function(req, res, next)
+{
+    res.render('lawyer/createApplicant', {
+        title: 'Create Applicant',
+        role: req.user ? req.user.role: '',
+        userFullName: req.user ? req.user.fullName: ''
     }); 
 };
 
