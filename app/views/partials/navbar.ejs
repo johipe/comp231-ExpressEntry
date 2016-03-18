@@ -27,18 +27,14 @@
                 <li><a href="/projects">Projects</a></li>
                 <li><a href="/services">Services</a></li>
                 <li><a href="/contact">Contact Me</a></li>
-                <li>
                     <% if ( userFullName ) { %>
-                        Hello
-                        <%=userFullName%>
-                           <a href="/signout"> Sign out </a>
-                            <% } else { %>
-                                <a href="/signup">Signup </a> <li><a href="/signin"> Signin </a></li>
-                                <% } %>
-                </li>
-
-
-
+                        <li><a href="/signout"> Sign out </a></li>
+                       <li><a href="<% if(role === 'lawyer') { %><%="/law_homepage"%>
+                                        <% } else {%> <%="/cli_homepage"%> <%}%>"> <b>Hello, <%=userFullName%></b></a></li>
+                    <% } else { %>
+                       <li><a href="/signup">Signup </a> </li>  
+                       <li><a href="/signin"> Signin </a></li>
+                    <% } %>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
