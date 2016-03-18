@@ -66,6 +66,35 @@ exports.renderLawhomepage = function(req, res, next)
     
 };
 
+//control for services pages
+
+exports.renderImmigrate = function(req, res, next)
+{
+    res.render('immigrate', {
+        title: 'Immigrate', 
+        userFullName: req.user ? req.user.fullName: ''
+    });
+    
+};
+
+exports.renderWork = function(req, res, next)
+{
+    res.render('work', {
+        title: 'Work', 
+        userFullName: req.user ? req.user.fullName: ''
+    });
+    
+};
+
+exports.renderStudy = function(req, res, next)
+{
+    res.render('study', {
+        title: 'Study', 
+        userFullName: req.user ? req.user.fullName: ''
+    });
+    
+};
+
 
 /*
 exports.render = function(req, res){
