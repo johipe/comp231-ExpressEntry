@@ -1,43 +1,39 @@
-<!--  nav nav-pills -->
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-            aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            
-            <div>
-                <img alt="Brand" src="/images/jpimage_s.png">
-            </div>
-        </div>
 
+<html>
+<head>
+<title></title>
+ <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+ </head>
+<body>
+<center>
+<nav>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="/homepage">Home</a></li>
-                <li><a href="/about">About Me</a></li>
-                <li><a href="/projects">Projects</a></li>
-                <li><a href="/services">Services</a></li>
-                <li><a href="/contact">Contact Me</a></li>
-                    <% if ( userFullName ) { %>
-                        <li><a href="/signout"> Sign out </a></li>
-                       <li><a href="<% if(role === 'lawyer') { %><%="/law_homepage"%>
-                                        <% } else {%> <%="/cli_homepage"%> <%}%>"> <b>Hello, <%=userFullName%></b></a></li>
-                    <% } else { %>
-                       <li><a href="/signup">Signup </a> </li>  
-                       <li><a href="/signin"> Signin </a></li>
-                    <% } %>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+        <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="/homepage">Home</a></li>
+            <li><a href="/about">About Us</a></li>
+            <li>
+            Services
+              <ul>
+              <li><a href="/immigrate">Immigrate</a></li>
+              <li><a href="/study">Study</a></li>
+              <li><a href= "/work">Work</a></li>
+              </ul>
+            </li>
+            <li><a href="/contact">Contact Me</a></li>
+                <% if ( userFullName ) { %>
+                    <li><a href="/signout"> Sign out </a></li>
+                   <li><a href="<% if(role === 'lawyer') { %><%="/law_homepage"%>
+                                    <% } else {%> <%="/cli_homepage"%> <%}%>"> <b>Hello, <%=userFullName%></b></a></li>
+                <% } else { %>
+                   <li><a href="/signup">Signup </a> </li>  
+                   <li><a href="/signin"> Signin </a></li>
+                <% } %>
+        </ul>
     </div>
-    <!-- /.container-fluid -->
+        <!-- /.navbar-collapse -->
 </nav>
+</center>
+</body>
+</html>
