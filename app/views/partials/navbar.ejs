@@ -1,29 +1,31 @@
 
-<html>
-<head>
-<title></title>
- <link rel="stylesheet" type="text/css" href="/css/navbar.css">
- </head>
-<body>
-<center>
-<nav>
-<ul>
-<li><a href="/homepage">Home</a></li>
-  <li><a href="/about">About Us</a></li>
-  <li>
-    Services
-    <ul>
-      <li><a href="/immigrate">Immigrate</a></li>
-      <li><a href="/study">Study</a></li>
-      <li><a href= "/work">Work</a></li>
-    </ul>
-  </li>
-  <li><a href="contact">Contact Us</a></li>
-   <li><a href="signin">Sign In</a></li>
-    <li><a href="signup">Sign Up</a></li>
-</ul>
 
+<html>
+<title></title>
+<head> <link rel="stylesheet" type="text/css" href="/css/carousel.css">
+</head>
+
+<nav>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="/homepage">Homepage</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+                    <% if ( userFullName ) { %>
+                        <li><a href="/signout"> Sign out </a></li>
+                       <li><a href="<% if(role === 'lawyer') { %><%="/law_homepage"%>
+                                        <% } else {%> <%="/cli_homepage"%> <%}%>"> <b>Hello, <%=userFullName%></b></a></li>
+                    <% } else { %>
+                       <li><a href="/signup">Signup </a> </li>  
+                       <li><a href="/signin"> Signin </a></li>
+                    <% } %>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
 </nav>
-</center>
-</body>
 </html>

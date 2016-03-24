@@ -81,29 +81,31 @@ exports.signup = function(req, res, next) {
 	}
 };
 
+// authenticate user and redirect based on user role
+
 exports.signin = function (req, res, next) {
   passport.authenticate('local', function(err, user, info) {
+
     if (err) { return next(err); }
     if (!user) { return res.redirect('/signin'); }
+
     req.logIn(user, function(err) {
-      if (err) { return next(err); }
-      console.log(user.role);
-                        if(user.role == "client"){
-                         return res.redirect('/cli_homepage');}// successRedirect:'/cli_homepage';}
-                    if(user.role == "lawyer"){
-                         return res.redirect('/law_homepage');}
-      
-   //return res.redirect('/law_homepage');
+		if (err) { return next(err); }
+		if(user.role == "client") {
+			return res.redirect('/cli_homepage');
+		}// successRedirect:'/cli_homepage';}
+		if(user.role == "lawyer") {
+			return res.redirect('/law_homepage');  // redirects to lawyer dashboard
+		}
     });
+    
   })(req, res, next);
 };  
 
    
+// redirect user to homepage when signing out
 
 exports.signout = function(req, res) {
 	req.logout();
-
 	res.redirect('/homepage');
-    
-
 };

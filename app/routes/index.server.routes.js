@@ -1,6 +1,6 @@
 module.exports = function(app) {
     var index = require ('../controllers/index.server.controller.js');
-   // app.get('/',index.render);
+    app.get('/',index.renderHomepage);
     
     app.route('/homepage').get(index.renderHomepage);
     
@@ -10,9 +10,9 @@ module.exports = function(app) {
     
     app.route('/services').get(index.renderServices);
     
-     app.route('/contact').get(index.renderContact);
+    app.route('/contact').get(index.renderContact);
      
-     app.route('/cli_homepage').get(index.renderClihomepage);
+    app.route('/cli_homepage').get(index.renderClihomepage);
      
      app.route('/law_homepage').get(index.renderLawhomepage);
      
@@ -22,5 +22,7 @@ module.exports = function(app) {
      app.route('/work').get(index.renderWork);
      
      app.route('/study').get(index.renderStudy);
-        
+           
+    app.route('/createApplicant').get(index.renderLawCreateApplicant);
+
 };
