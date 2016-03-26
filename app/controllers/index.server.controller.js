@@ -55,7 +55,7 @@ exports.renderContact = function(req, res, next)
 
 exports.renderClihomepage = function(req, res, next)
 {
-    res.render('cli_homepage', {
+    res.render('client/cli_homepage', {
         title: 'Client Homepage',
         role: req.user ? req.user.role: '',
         userFullName: req.user ? req.user.fullName: ''

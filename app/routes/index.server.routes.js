@@ -15,13 +15,12 @@ module.exports = function(app) {
     app.route('/cli_homepage').get(index.renderClihomepage);
      
      app.route('/law_homepage').get(index.renderLawhomepage);
-     
-     //routing for services list
-     app.route('/immigrate').get(index.renderImmigrate);
-     
-     app.route('/work').get(index.renderWork);
-     
-     app.route('/study').get(index.renderStudy);
+
+
+    app.route('/law_homepage').get(index.renderLawhomepage);
+    
+    app.route('/createApplicant').get(index.renderLawCreateApplicant);
+
            
     app.route('/createApplicant').get(index.renderLawCreateApplicant);
 
