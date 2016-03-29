@@ -9,6 +9,8 @@ var config = require('./config'),
             //var db2: mongoose.Connection = mongoose.connection;
             
             require('../app/models/user.server.model');
+            require('../app/models/payment.server.model');
+            require('../app/models/applicant.server.model');
             //require('../app/models/feedback.server.model');
             
             return db;
