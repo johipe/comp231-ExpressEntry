@@ -1,4 +1,5 @@
 var User = require('mongoose').model('User'),
+	Applicant = require('mongoose').model('ApplicantDetails'),
     passport = require('passport');
 
 var getErrorMessage = function(err) {
@@ -102,6 +103,52 @@ exports.signin = function (req, res, next) {
   })(req, res, next);
 };  
 
+// update applicant details
+
+exports.addOrUpdateApplicant = function(req, res, next) {
+	var applicantdetails = new Applicant(req.body);
+
+	Applicant.findOneAndUpdate({userId: applicantdetails.userId},
+		{
+			$set: {
+				firstname: applicantdetails.firstname,
+				lastname: applicantdetails.lastname,
+				email: applicantdetails.email,
+				mobile: applicantdetails.mobile,
+				address: applicantdetails.address,
+				postalcode: applicantdetails.postalcode,
+				status: applicantdetails.status,
+				userId: applicantdetails.userId
+			}
+		}, 
+		function(err, doc) {
+		if(err) {
+			return next(err);
+		} else {
+
+			if(doc){
+				res.render('lawyer/lawyerThankyou', {
+					title: 'Applicant details saved successfully',
+		            role: req.user ? req.user.role: '',
+		            userFullName: req.user ? req.user.fullName: ''
+				});
+			} else{
+				applicantdetails.save(function(err) {
+					if(err) {
+						return next(err);
+					} else {
+						res.render('lawyer/lawyerThankyou', {
+							title: 'Applicant details saved successfully',
+							role: req.user ? req.user.role: '',
+							userFullName: req.user ? req.user.fullName: ''
+						});
+					}
+				});
+			}
+			
+		}
+	}); 
+};
    
 // redirect user to homepage when signing out
 
@@ -109,3 +156,4 @@ exports.signout = function(req, res) {
 	req.logout();
 	res.redirect('/homepage');
 };
+

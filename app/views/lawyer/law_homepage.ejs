@@ -38,17 +38,20 @@
                       <th>Last Name</th>
                       <th>Date Created</th>
                       <th>Email</th>
+                      <th></th>
                     </tr>
                   </thead>
                   <tbody>
                     <% var count = 1%>
                     <% users.forEach(function(user){ %>
                       <tr>
-                      <td><%= count++ %></td>
-                      <td><%= user.firstName %></td>
-                      <td><%= user.lastName %></td>
-                      <td><%= new Date(user.created).toLocaleString() %></td>  
-                      <td><%= user.email %></td>       
+                        <td><%= count++ %></td>
+                        <td><%= user.firstName %></td>
+                        <td><%= user.lastName %></td>
+                        <td><%= new Date(user.created).toLocaleString() %></td>  
+                        <td><%= user.email %></td>
+                        <td><a href="/edit/<%= user._id%>" class="btn btn-primary">Edit</a>
+                        </td>     
                       </tr>
                     <% }); %>
                   </tbody>
