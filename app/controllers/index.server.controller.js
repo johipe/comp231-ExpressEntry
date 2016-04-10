@@ -85,14 +85,28 @@ exports.renderLawhomepage = function(req, res, next)
     }); 
 };
 
-exports.renderLawCreateApplicant = function(req, res, next)
+exports.renderLawEditApplicant = function(req, res, next)
 {
-    res.render('lawyer/createApplicant', {
-        title: 'Create Applicant',
-        role: req.user ? req.user.role: '',
-        userFullName: req.user ? req.user.fullName: ''
-    }); 
+    User.find({_id:req.params.id}, function(err, users){
+        var userArray = [];
+
+        users.forEach(function(user) {
+            userArray.push(user);
+        });
+
+        res.render('lawyer/editApplicant', {
+            title: 'Edit Applicant',
+            role: req.user ? req.user.role: '',
+            userFullName: req.user ? req.user.fullName: '',
+            userId: userArray[0]._id,
+            firstname:userArray[0].firstName,
+            lastname:userArray[0].lastName,
+            email:userArray[0].email
+        }); 
+    });
 };
+
+
 
 //control for services pages
 

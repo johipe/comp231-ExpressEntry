@@ -11,5 +11,7 @@ module.exports = function (app) {
         .post(users.signin);
 
     app.get('/signout', users.signout);
+
+    app.route('/updateApplicant').post(users.addOrUpdateApplicant);
 };
 
