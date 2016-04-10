@@ -28,9 +28,4 @@ module.exports = function(app) {
     app.route('/law_homepage').get(index.renderLawhomepage);
     
     app.route('/edit/:id').get(index.renderLawEditApplicant);
-
-    app.route('/createApplicant').get(index.renderLawCreateApplicant);
-
-           
-    app.route('/createApplicant').get(index.renderLawCreateApplicant);
 };
