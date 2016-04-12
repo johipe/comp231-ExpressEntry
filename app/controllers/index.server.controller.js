@@ -106,6 +106,69 @@ exports.renderLawEditApplicant = function(req, res, next)
     });
 };
 
+exports.renderSearchedDetails = function(req, res, next)
+{
+
+
+    console.log("reached");
+    console.log(req.body.fname);
+    console.log(req.body.lname);
+
+    User.find({
+        $or: [
+        {firstName: req.body.fname ? req.body.fname : "",role:"client"},
+        {lastName: req.body.lname ? req.body.lname : "",role:"client"},
+        ]
+    }, function(err, users){
+        var userArray = [];
+
+        users.forEach(function(user) {
+            userArray.push(user);
+        });
+
+        res.render('lawyer/law_homepage', {
+            title: 'Lawyer Dashboard', 
+            users: userArray,
+            role: req.user ? req.user.role: '',
+            userFullName: req.user ? req.user.fullName: ''
+        });
+    }); 
+
+    /*User.find({
+        $or:[
+            {firstName: req.params.fname ? req.params.fname : "", role:"client"}, 
+            {lastname: req.params.lname ? req.params.lname : "", role:"client"}
+        ]}, 
+        function(err, users){
+            var userArray = [];
+
+            users.forEach(function(user) {
+                userArray.push(user);
+            });
+
+            res.render('lawyer/law_homepage', {
+                title: 'Lawyer Dashboard', 
+                users: userArray,
+                role: req.user ? req.user.role: '',
+                userFullName: req.user ? req.user.fullName: ''
+            });
+    });*/
+};
+
+/*function callbackFunction(req, res, next, err, users){
+    var userArray = [];
+
+    users.forEach(function(user) {
+        userArray.push(user);
+    });
+
+    res.render('lawyer/law_homepage', {
+        title: 'Lawyer Dashboard', 
+        users: userArray,
+        role: req.user ? req.user.role: '',
+        userFullName: req.user ? req.user.fullName: ''
+    });
+}*/
 
 
 //control for services pages

@@ -19,13 +19,13 @@
           <h2 class="page-header">Lawyer Dashboard</h2>
           <h2 class="sub-header">List of Clients</h2>
           <div class="row">
-            <label>First Name</label>
-            <input type="text" value="">
-            <label>Last Name</label>
-            <input type="text" value="">
-            <label>Applicant ID</label>
-            <input type="text" value="">
-            <button type="button" class="btn btn-primary">Search</button>
+            <form action="/search" method="post">
+              <label>First Name</label>
+              <input type="text" name="fname">
+              <label>Last Name</label>
+              <input type="text" name="lname">
+              <input type="submit" class="btn btn-primary" value="Search" />
+            </form>
           </div>
           <div class="row">
             <div class="table-responsive">
