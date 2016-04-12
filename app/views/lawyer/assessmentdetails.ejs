@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header.ejs %>
+    <link href="/css/law_homepage.css" rel="stylesheet">
+</head>
+
+<body>
+ <% include ../partials/navbar.ejs %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <% include lawyerSideBar.ejs %>
+         
+         <!-- MAIN CONTENT (put stuff to be shown inside the dashboard area here) -->
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header"><%= title %></h1>
+          
+          <div class="row">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Client Name</th>
+                      <th>Age</th>
+                      <th>Education </th>
+                      <th>Experience </th>
+                      <th>Speaking </th>
+                      <th>Reading </th>
+                      <th>Writing</th>
+                      <th>Listening </th>
+                      <th>Second Language </th>
+                      <th>Results </th>
+                      <th>Date </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% users.forEach(function(users) { %>
+                      <tr> 
+                        <td> <%= users.user %> </td>
+                        <td> <%= users.age %> </td>
+                        <td> <%= users.education %> </td>
+                        <td> <%= users.experience%> </td>
+                        <td> <%= users.speaking %> </td>
+                        <td> <%= users.reading %> </td>
+                        <td> <%= users.writing %> </td>
+                        <td> <%= users.listening %> </td>
+                        <td> <%= users.secondL %> </td>
+                        <td> <%= users.results %> </td>
+                        <td><%= new Date(users.created).toLocaleString() %></td>
+                      </tr>
+                    <% }) %>
+                  </tbody>
+                </table>
+            </div>
+          </div>
+        </div>
+        <!-- END MAIN CONTENT-->
+
+      </div>
+    </div>
+<% include ../partials/footer.ejs %>

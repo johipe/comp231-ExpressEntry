@@ -10,8 +10,8 @@ var config = require('./config'),
             
             require('../app/models/user.server.model');
             require('../app/models/payment.server.model');
+            require('../app/models/workplan.server.model');
+            require('../app/models/assessment.server.model');
             require('../app/models/applicant.server.model');
-            //require('../app/models/feedback.server.model');
-            
             return db;
         };
