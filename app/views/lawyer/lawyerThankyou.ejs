@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../partials/header.ejs %>
+    <link href="/css/law_homepage.css" rel="stylesheet">
+</head>
+
+<body>
+ <% include ../partials/navbar.ejs %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <% include lawyerSideBar.ejs %>
+         
+         <!-- MAIN CONTENT (put stuff to be shown inside the dashboard area here) -->
+         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h3 class="page-header"><%= title %></h3>
+          <a href="/law_homepage" class="btn btn-primary">Go Back to Home</a>
+         </div>
+        <!-- END MAIN CONTENT-->
+
+      </div>
+    </div>
+<% include ../partials/footer.ejs %>

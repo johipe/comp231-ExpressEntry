@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <% include ../partials/header.ejs %>
+    <link href="/css/law_homepage.css" rel="stylesheet">
+</head>
+<body>
+ <% include ../partials/navbar.ejs %>
+
+    <div class="container-fluid">
+      <div class="row">
+        <% include clientSideBar.ejs %>
+
+        <!--Main content-->
+         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+         <h2 class="sub-header">Self Assessment Express Entry form</h2>
+			<div class="row">
+				  <form name="assessment" action="/assessment" method="post" class="form-horizontal">
+					    <fieldset>
+						    <div class="form-group">
+							    <div class="col-sm-9">
+							    	<input type="hidden" class="form-control" name="userid" id="userid" value="<%=userid%>" readonly>
+							    </div> 
+						    </div>
+
+						    <div class="form-group">
+						        <label class="col-sm-3 control-label" for="user">Client Name: </label>
+							    <div class="col-sm-9">
+							    	<input type="text" class="form-control" name="user" id="user" value="<%=userFullName%>" readonly>
+							    </div> 
+						    </div>
+					      
+						    <div class="form-group">
+						        <label class="col-sm-3 control-label" for="age">What is your age? (Maximum 12 points)</label>
+						        <div class="col-sm-9">
+						          <select name="age" onChange="calculateResults()" id="age">
+						          	<option value="0">Age</option>
+						          	<option value="0"> Under 18 </option>
+						          	<option value="12"> 18-35 </option>
+									<option value="11"> 36 </option>
+									<option value="10"> 37 </option>
+									<option value="9"> 38 </option>
+									<option value="8"> 39 </option>
+									<option value="7"> 40 </option>
+									<option value="6"> 41 </option>
+									<option value="5"> 42 </option>
+									<option value="4"> 43 </option>
+									<option value="3"> 44 </option>
+									<option value="2"> 45 </option>
+									<option value="1"> 46 </option>
+									<option value="0"> 47 and older </option>
+						          </select>
+						        </div> 
+						    </div>
+						    
+						    <div class="form-group">
+						        <label class="col-sm-3 control-label" for="education"> What is your highest level of education? (Maximum 25 points) </label>
+						        <div class="col-sm-9">
+						          <select name="education" onChange="calculateResults()" id="education">
+						          	<option value="0">Education</option>
+						          	<option value="25"> University degree at the Doctoral(PhD) level </option>
+						          	<option value="23"> University degress at the Master's level </option>
+									<option value="22"> Two or more  Canadian post-seconday degrees or diplomas </option>
+									<option value="21"> Canadian post-secondary degree or diploma for a program for three years or longer </option>
+									<option value="19"> Canadian post-seconday degree or diploma for a two-year program </option>
+									<option value="15"> Canadian post-seconday degree or diploma for a one-year program </option>
+									<option value="5"> Canadian high school diploma </option>
+									<option value="0"> None of the above </option>
+						          </select>							        
+						      </div>
+						    </div>
+
+						    <div class="form-group">
+						        <label class="col-sm-3 control-label" for="experience">How many years of work experience have you acquired? (Maximum 15 points) </label>
+						        <div class="col-sm-9">
+						         	<select name="experience" onChange="calculateResults()" id="experience">
+					                <option value="0">Experience</option>
+					                <option value="9">1 year</option>
+					                <option value="11">2-3 years</option>
+					                <option value="13">4-5 years</option>
+					                <option value="15">6 or more years</option>
+					              </select>
+						        </div>
+						    </div>
+
+						    <div class="form-group">
+						        <label class="col-sm-3 control-label" for="firstlanguage">First Official Language </label>
+							        <div class="col-sm-9">
+							         <select name="speaking" onChange="calculateResults()" id="speaking">
+						                <option value="0">Speaking</option>
+						                <option value="6">CLB level 9 or higher</option>
+						                <option value="5">CLB level 8</option>
+						                <option value="4">CLB level 7</option>
+						                <option value="0">Below CLB level 7</option>
+						             </select>
+
+						              <select name="listening" onChange="calculateResults()" id="listening">
+						                <option value="0">Listening</option>
+						                <option value="6">CLB level 9 or higher</option>
+						                <option value="5">CLB level 8</option>
+						                <option value="4">CLB level 7</option>
+						                <option value="0">Below CLB level 7</option>
+						              </select>
+
+						              <select name="reading" onChange="calculateResults()" id="reading">
+						                <option value="0">Reading</option>
+						                <option value="6">CLB level 9 or higher</option>
+						                <option value="5">CLB level 8</option>
+						                <option value="4">CLB level 7</option>
+						                <option value="0">Below CLB level 7</option>
+						              </select>
+
+						              <select name="writing" onChange="calculateResults()" id="writing">
+						                <option value="0">Writing</option>
+						                <option value="6">CLB level 9 or higher</option>
+						                <option value="5">CLB level 8</option>
+						                <option value="4">CLB level 7</option>
+						                <option value="0">Below CLB level 7</option>
+						              </select>
+							        </div>
+						    </div>
+
+ 							<div class="form-group">
+						        <label class="col-sm-3 control-label" for="secondlanguage">Second Language </label>
+					    		<div class="col-sm-9">
+						          <select name="secondL" onChange="calculateResults()" id="secondL">
+						         	<option value="0">Second Language</option>
+					                <option value="4">At least CLB5 in all of the four abilities</option>
+					                <option value="0">CLB 4 or less in any of the four abilities</option>
+					              </select>
+								</div>
+							</div>
+
+						     <div class="form-group">
+						        <label class="col-sm-3 control-label" for="results">Assessment Points: </label>
+					    		<div class="col-sm-9">
+					    			<input type="text" name="results" id="results" readonly>
+								</div>
+							</div>
+
+						    <div class="form-group">
+						        <div class="col-sm-offset-3 col-sm-9">
+						          <input type="submit" value="Submit" />
+						        </div>	
+						    </div>
+					</fieldset>
+				</form>
+            </div>
+          </div>      	
+        <!--ends here-->
+      </div>
+    </div>
+<% include ../partials/footer.ejs %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
