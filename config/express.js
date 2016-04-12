@@ -42,8 +42,11 @@ module.exports = function(){
     require('../app/routes/users.server.routes.js')(app);
     require('../app/routes/payment.server.routes.js')(app);
     require('../app/routes/workplan.server.routes.js')(app);
+<<<<<<< HEAD
     require('../app/routes/assessment.server.routes.js')(app);
 
+=======
+>>>>>>> ff21cfd4f4798dbdc911213e6d09c6b8ae95ec89
     
     app.use(express.static('./public'));
     
