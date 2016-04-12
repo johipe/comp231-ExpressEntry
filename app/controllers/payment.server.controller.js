@@ -25,15 +25,9 @@ exports.createPayment = function(req,res,next) {
 
 exports.renderthankyou = function(req, res, next)
 {
-<<<<<<< HEAD
     res.render('client/thankyou', {
         title: 'Payment Confirmation',
         message: 'making a payment.',
-=======
-
-    res.render('client/thankyou', {
-        title: 'Payment Confirmation',
->>>>>>> ff21cfd4f4798dbdc911213e6d09c6b8ae95ec89
         role: req.user ? req.user.role: '',
         userFullName: req.user ? req.user.fullName: ''
     }); 
