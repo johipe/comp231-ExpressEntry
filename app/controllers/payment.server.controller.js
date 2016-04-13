@@ -27,7 +27,7 @@ exports.renderthankyou = function(req, res, next)
 {
     res.render('client/thankyou', {
         title: 'Payment Confirmation',
-        message: 'making a payment.',
+        message: 'making a payment',
         role: req.user ? req.user.role: '',
         userFullName: req.user ? req.user.fullName: ''
     }); 

@@ -3,9 +3,9 @@ var assessment = require('../../app/controllers/assessment.server.controller'),
 
 module.exports = function(app) {
 	app.route('/assessment').get(assessment.renderClientAssessment)
-        				 .post(assessment.createAssessment);
+        				 	.post(assessment.createAssessment);
 
-    app.route('/thankyou').get(assessment.renderthankyou);
+    app.route('/assessmentthankyou').get(assessment.renderAssessmentThankyou);
 
     app.route('/assessmentdetails').get(assessment.renderassessmentdetails);
 

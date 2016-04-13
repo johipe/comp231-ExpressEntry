@@ -18,16 +18,16 @@ exports.createAssessment = function(req,res,next) {
 		if(err) {
 			return next(err);
 		} else {
-			return res.redirect('/thankyou');
+			return res.redirect('/assessmentthankyou');
 		}
 	});
 };
 
-exports.renderthankyou = function(req, res, next)
+exports.renderAssessmentThankyou = function(req, res, next)
 {
-    res.render('client/thankyou', {
+    res.render('client/assessmentthankyou', {
         title: 'Assessment Results',
-        message: 'completing the self-assessment.',
+        message: 'completing the self-assessment',
         role: req.user ? req.user.role: '',
         userFullName: req.user ? req.user.fullName: ''
     }); 
